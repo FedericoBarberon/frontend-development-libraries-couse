@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { getRandomNumber } from '../../utils/getRandomNumber'
 
-const QUOTES_URL = `https://quotable.io/quotes?page=${getRandomNumber(103)}`
+const QUOTES_URL = 'https://quotable.io/quotes'
+const TOTAL_PAGES = 103
 
 export const fetchQuotes = createAsyncThunk('quotes/fetchQuotes', async () => {
-  const data = await fetch(QUOTES_URL)
+  const data = await fetch(`${QUOTES_URL}?page=${getRandomNumber(TOTAL_PAGES)}`)
   const quotes = await data.json()
 
   return quotes
