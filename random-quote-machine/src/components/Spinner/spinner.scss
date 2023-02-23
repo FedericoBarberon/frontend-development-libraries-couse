@@ -1,0 +1,27 @@
+@use "../../scss/util";
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: util.rem(100);
+}
+
+.spinner {
+  width: util.rem(40);
+  height: util.rem(40);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-left-color: var(--color);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

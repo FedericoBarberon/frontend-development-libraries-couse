@@ -1,0 +1,76 @@
+@use "scss/util";
+
+$radius: 4px;
+
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color);
+}
+
+.quote-box {
+  padding: util.rem(40) util.rem(50);
+  border-radius: $radius;
+  background-color: white;
+  color: var(--color);
+  width: min(100%, util.rem(600));
+  display: flex;
+  flex-direction: column;
+  gap: util.rem(20);
+  box-shadow: 0 0 20px #00000055;
+
+  &__text {
+    font-size: clamp(util.rem(25), util.rem(14) + 1.5vw, util.rem(50));
+    text-align: center;
+
+    &__icon {
+      font-size: calc(100% - util.rem(10));
+      margin-right: util.rem(16);
+    }
+  }
+
+  &__author {
+    display: block;
+    text-align: right;
+    font-size: clamp(util.rem(14), util.rem(8) + 0.8vw, util.rem(25));
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__links {
+      display: flex;
+      gap: util.rem(10);
+    }
+  }
+}
+
+.button {
+  background-color: var(--color);
+  border: none;
+  color: white;
+  padding: util.rem(14);
+  border-radius: $radius;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 5px #00000055;
+  transition: filter 0.3s, background-color 1s;
+
+  &:hover {
+    filter: brightness(110%);
+  }
+
+  &:active {
+    filter: brightness(90%);
+  }
+
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+}
