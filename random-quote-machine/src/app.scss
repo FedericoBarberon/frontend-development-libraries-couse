@@ -15,7 +15,7 @@ $radius: 4px;
   border-radius: $radius;
   background-color: white;
   color: var(--color);
-  width: min(100%, util.rem(600));
+  width: min(100% - util.rem(40), util.rem(600));
   display: flex;
   flex-direction: column;
   gap: util.rem(20);
@@ -41,10 +41,15 @@ $radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: util.rem(20);
 
     &__links {
       display: flex;
       gap: util.rem(10);
+    }
+
+    @media (max-width: util.rem(360)) {
+      flex-direction: column;
     }
   }
 }
@@ -72,5 +77,9 @@ $radius: 4px;
   &:disabled {
     background-color: gray;
     cursor: not-allowed;
+  }
+
+  @media (pointer: coarse) {
+    cursor: default;
   }
 }
