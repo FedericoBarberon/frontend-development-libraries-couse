@@ -15,12 +15,12 @@ export default function App () {
   const [index, setIndex] = useState(0)
 
   const getNewQuote = () => {
-    changeColor()
     setQuote(quotes[index])
     if (index === quotes.length - 1) {
       dispatch(fetchQuotes())
       setIndex(0)
     } else {
+      changeColor()
       setIndex(index + 1)
     }
   }
